@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <title>Register</title>
+        <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script type='text/javascript'>
+            $(document).ready(function(){
+                $('#btnOkay-containId').click(function(){
+                    $('#section-contain-id').css('display','none')
+                });
+
+                onsubmitfrm = false;
+                $('#userNameLen-ErrorId-contain').hide();
+                $('#userName-ErrorId-contain').hide();
+                $('#emailId-ErrorId-contain').hide();
+                $('#mobileNumber-ErrorId-contain').hide();
+                $('#passwordNotMatch-ErrorId-contain').hide();
+                $('.passwordInfo-ErrorId-contain').hide();
+                $('#emailIdFieldOut-ErrorId-contain').hide();
+                
+
+                //All input box this fire on keyup
+                $('#usrNameInptId-contain').keyup(function(){
+                    chkUsername();
+                });
+
+                $('#emailIdInptId-contain').keyup(function(){
+                    chkEmailId();
+                });
+
+                $('#mobileInptId-contain').keyup(function(){
+                    chkMobileNumber();
+                });
+
+                $('#passwdInptId-contain').keyup(function(){
+                    chkFirstpasswrd();
+                });
+
+                $('#cnfrmPasswrdId-contain').keyup(function()
+                {
+                    matchPassword();
+                });
+                
+                $('.rgstr-clss').click(function(){
+                    var usrval = chkUsername();
+                    var usremial = chkEmailId();
+                    var usrnumber = chkMobileNumber();
+                    var usrpasswrd = chkFirstpasswrd();
+                    var usrcnfrmpassword = matchPassword();
+                    
+                    if((usrval == true) && (usremial == true) && (usrnumber == true) && (usrpasswrd == true) && (usrcnfrmpassword == true))
+                    {
+                        $('#rgstrsnfrmId-contiant').attr('onsubmit',function(){
+                            return true;
+                        });
+                        
+                    }
+                    else
+                    {
+                        $('#rgstrsnfrmId-contiant').attr('onsubmit',function(){
+                            return false;
+                        });
+                    }
+                });
+
+                function chkUsername()
+                {
+                    var usrNameValue = $('input[name="username"]').val();
+                    var lenvar = usrNameValue.length;
+                    
+                    if((lenvar > 3) && (lenvar < 40))
+                    {   
+                        $('#userNameLen-ErrorId-contain').hide();
+                        var regex = new RegExp("^[a-zA-Z\\s]+$");
+                        if(regex.test(usrNameValue))
+                        {
+                            $('#userName-ErrorId-contain').hide();
+                            $('input[name="username"]').css('border-bottom','2px solid #228B22');
+                            return true;
+                        }
+                        else
+                        {
+                            $('#userName-ErrorId-contain').show();
+                            $('input[name="username"]').css('border-bottom','1px solid #000');
+                            return false;
+                        }    
+                       
+                    }
+                    else
+                    {
+                        $('#userNameLen-ErrorId-contain').show();
+                        $('input[name="username"]').css('border-bottom','1px solid #000');
+                        return false;
+                    }
+                    
+
+                }
+
+                function chkEmailId()
+                {
+                    var emailIdInptVal = $('#emailIdInptId-contain').val();
+                    //alert(emailIdInptVal)
+                    let emailIdInptValLen = emailIdInptVal.length;
+                    
+                    if(emailIdInptValLen == '')
+                    {
+                        //alert('Done');
+                       /* */
+                        $('#emailIdFieldOut-ErrorId-contain').show();
+                        $('#emailId-ErrorId-contain').hide();
+                        $('#emailIdInptId-contain').css('border-bottom','1px solid #000');
+                        return false;
+   
+                    }
+                    else
+                    {
+                        var regexEmail = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                        
+                        if(regexEmail.test(emailIdInptVal))
+                        {
+                            $('#emailIdFieldOut-ErrorId-contain').hide();
+                            $('#emailId-ErrorId-contain').hide();
+                            $('#emailIdInptId-contain').css('border-bottom','2px solid #228B22');
+                            return true;
+                        }
+                        else(!regexEmail.test(emailIdInptVal))
+                        {
+                            
+                            $('#emailIdFieldOut-ErrorId-contain').hide();
+                            $('#emailIdInptId-contain').css('border-bottom','1px solid #000');
+                            $('#emailId-ErrorId-contain').show();
+                            return false;
+                        }
+                        
+                    }
+                        
+                }
+            
+                function chkMobileNumber()
+                {
+                    var containMobileNmbr = $('#mobileInptId-contain').val();
+                    var containMobileNmbrLen = containMobileNmbr.length;
+                    var regexMobileNumber = /^[0-9]{10}$/;
+                    if(regexMobileNumber.test(containMobileNmbr))
+                    {
+                        $("#mobileNumber-ErrorId-contain").hide();
+                        $('#mobileInptId-contain').css('border-bottom','2px solid #228B22');
+                        return true;
+                    }
+                    else
+                    {
+                        $('#mobileInptId-contain').css('border-bottom','1px solid #000');
+                        $("#mobileNumber-ErrorId-contain").show();
+                        return false;
+                    }
+                    
+                }
+                
+                function chkFirstpasswrd()
+                {
+                    var passVal = $('#passwdInptId-contain').val();
+                    var passValLen = passVal.length;
+
+                    var regExpasswrd = /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*_=+-]).{8,16}$/;
+
+                    if(regExpasswrd.test(passVal))
+                    {
+                        if((passValLen >= 8) && (passValLen <= 16))
+                        {
+                            $('#passwdInptId-contain').css('border-bottom','2px solid #228B22');
+                            $('.passwordInfo-ErrorId-contain').hide();
+                            return true;
+                        }
+                        else
+                        {
+                            $('#passwdInptId-contain').css('border-bottom','1px solid #000');
+                            $('.passwordInfo-ErrorId-contain').show();
+                            return false;
+                        }
+                        
+                    }
+                    else
+                    {
+                        
+                        $('#passwdInptId-contain').css('border-bottom','1px solid #000');
+                        $('.passwordInfo-ErrorId-contain').show();
+                        return false;
+                    }
+                }
+
+                function matchPassword()
+                {
+                    var cnfrmPasswrdVal = $('#cnfrmPasswrdId-contain').val();
+                    var passVal = $('#passwdInptId-contain').val();
+                    
+                    if(cnfrmPasswrdVal == passVal)
+                    {
+                        $('#cnfrmPasswrdId-contain').css('border-bottom','2px solid #228B22');
+                        $('#passwordNotMatch-ErrorId-contain').hide();
+                        return true;
+                    }
+                    else
+                    {
+                        $('#cnfrmPasswrdId-contain').css('border-bottom','2px solid #000');
+                        $('#passwordNotMatch-ErrorId-contain').show();
+                        return false;
+
+                    }
+                }
+            });
+        </script>
+        <style>
+            body 
+            {
+                color: #000;
+                overflow-x: hidden;
+                height: 100%;
+                background-color: #B0BEC5;
+                background-repeat: no-repeat;
+            }
+            #section-contain-id
+            {
+                background-size: 100% 100%;
+                position: fixed;
+                height: 100%;
+                width: 100%;
+                z-index: 9000;
+                opacity: 0.6;
+                background-color: #000;
+                overflow-x: hidden;
+                overflow-y: auto;
+                display: none;
+            }
+
+            #msgInfo-containId
+            {
+                height: 410px;
+                width: 1000px;
+                opacity: 1;
+                background-image: linear-gradient(50deg, rgb(124, 144, 180) 50%, #bbb 50%);
+                margin-bottom: calc(-50%);
+                margin-left: calc(50%);
+                position:  absolute;
+                transform: translate(-50%,25%);
+            }
+
+            #userNameError-containId
+            {
+                color: maroon;
+                font-size: 20px;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-top: 70px;
+                margin-left: 50px;
+                position: fixed;
+
+            }
+
+            #btnOkay-containId
+            {
+                width: 200px;
+                height: 50px;
+                margin-top: calc(355px);
+                margin-left: calc(795px);
+                background-color: rgb(28, 155, 38);
+                border-radius: 4.5%;
+                position: fixed;
+            }
+            #btnOkay-containId:hover
+            {
+                width: 205px;
+                height: 50px;
+                background-color: rgb(61, 63, 61);
+                color: white;
+                font-size: larger;
+            }
+            #btnOkay-containId:active
+            {
+                color: white;
+                background-color: red;
+                
+            }
+
+            .card0 
+            {
+                box-shadow: 0px 4px 8px 0px #757575;
+                border-radius: 0px
+            }
+
+            .card2 
+            {
+                margin: 0px 40px
+            }
+
+            .logo 
+            {
+                width: 200px;
+                height: 100px;
+                margin-top: 20px;
+                margin-left: 35px
+            }
+
+            .image 
+            {
+                width: 360px;
+                height: 280px
+            }
+
+            .inptFldcls1
+            {
+                border-bottom: 1px solid #000;
+            }
+            .border-line 
+            {
+                border-right: 1px solid #EEEEEE
+            }
+
+            .facebook 
+            {
+                background-color: #3b5998;
+                color: #fff;
+                font-size: 18px;
+                padding-top: 5px;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                cursor: pointer
+            }
+
+            .twitter 
+            {
+                background-color: #1DA1F2;
+                color: #fff;
+                font-size: 18px;
+                padding-top: 5px;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                cursor: pointer
+            }
+
+            .linkedin 
+            {
+                background-color: #2867B2;
+                color: #fff;
+                font-size: 18px;
+                padding-top: 5px;
+                border-radius: 50%;
+                width: 35px;
+                height: 35px;
+                cursor: pointer
+            }
+
+            .line 
+            {
+                height: 1px;
+                width: 45%;
+                background-color: #E0E0E0;
+                margin-top: 10px
+            }
+
+            .or 
+            {
+                width: 10%;
+                font-weight: bold
+            }
+
+            .text-sm 
+            {
+                font-size: 14px !important
+            }
+
+            ::placeholder 
+            {
+                color: #BDBDBD;
+                opacity: 1;
+                font-weight: 300
+            }
+
+            :-ms-input-placeholder 
+            {
+                color: #BDBDBD;
+                font-weight: 300
+            }
+
+            ::-ms-input-placeholder
+            {
+                color: #BDBDBD;
+                font-weight: 300
+            }
+
+            input,
+            textarea 
+            {
+                padding: 10px 12px 10px 12px;
+                border: 1px solid lightgrey;
+                border-radius: 2px;
+                margin-bottom: 5px;
+                margin-top: 2px;
+                width: 100%;
+                box-sizing: border-box;
+                color: #2C3E50;
+                font-size: 14px;
+                letter-spacing: 1px
+            }
+
+            input:focus,
+            textarea:focus 
+            {
+                -moz-box-shadow: none !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+                border: 1px solid #304FFE;
+                outline-width: 0
+            }
+
+            button:focus 
+            {
+                -moz-box-shadow: none !important;
+                -webkit-box-shadow: none !important;
+                box-shadow: none !important;
+                outline-width: 0
+            }
+
+            a 
+            {
+                color: inherit;
+                cursor: pointer
+            }
+
+            .btn-blue 
+            {
+                background-color: #1A237E;
+                width: 150px;
+                color: #fff;
+                border-radius: 2px
+            }
+
+            .btn-blue:hover 
+            {
+                background-color: #000;
+                cursor: pointer
+            }
+
+            .bg-blue 
+            {
+                color: #fff;
+                background-color: #1A237E
+            }
+
+            @media screen and (max-width: 991px) 
+            {
+                .logo 
+                {
+                    margin-left: 0px
+                }
+
+                .image 
+                {
+                    width: 300px;
+                    height: 220px
+                }
+
+                .border-line 
+                {
+                    border-right: none
+                }
+
+                .card2 
+                {
+                    border-top: 1px solid #EEEEEE !important;
+                    margin: 0px 15px
+                }
+            }
+        </style>
+    </head>
+    <body oncontextmenu='return false' class='snippet-body'>
+        <div id="msgid"></div>
+        <section id="section-contain-id">
+            <div id="msgInfo-containId">
+                <div id="success-contain" style="display: none;">
+                    <div>
+                        <h1>Hello</h1>
+                    </div>
+                </div>
+                <div id="error-contain">
+                    
+                </div>
+                <input class="btn btn-blue" id="btnOkay-containId" type="submit" value="OKAY">
+            </div>
+            
+        </section>
+{% if messages %}
+       {% for message in messages %}
+       
+<div class="alert alert-danger {{ message.tags}} alert-dismissible fade show my-0 " role="alert">
+<strong>   {{ message }} </strong>
+
+ <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+        {% endfor %}
+    {% endif %}
+                                
+        <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+            <div class="card card0 border-0">
+                <div class="row d-flex">
+                    <div class="col-lg-6">
+                        <div class="card1 pb-5">
+                            <div class="row"> 
+                                <img src="/static/img/2.png" class="logo"> 
+                            </div>
+                            <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> 
+                                <img src="/static/img/1.png" class="image"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card2 card border-0 px-4 py-5">
+                            <form method="POST" id="rgstrsnfrmId-contiant"  onsubmit="return false">
+                                {% csrf_token %}
+                                <div class="row px-3"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Username<span style="color: red;">*</span></h6>
+                                    </label>
+                                    <input type="text" class="inptFldcls1" id="usrNameInptId-contain" name="username" placeholder="Enter a Username" autocomplete="off" required> 
+                                    <div id="userName-ErrorId-contain" style="color:rgb(223, 29, 29); font-size:18.5px; font-weight:400;">
+                                        <small>Give correct user name, using only character.</small>
+                                    </div>
+                                    <div id="userNameLen-ErrorId-contain" style="color:rgb(223, 29, 29); font-size:18.5px; font-weight:400;">
+                                        <small> Give correct user name length</small>
+                                    </div>
+                                </div>
+                            
+                                <div class="row px-3" class="mb-4" style="margin-top:20px;"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Email Address<span style="color: red;">*</span></h6>
+                                    </label> <input type="email" class="inptFldcls1" id="emailIdInptId-contain" name="email" placeholder="Enter a valid email address" autocomplete="off">
+                                    <div id="emailIdFieldOut-ErrorId-contain" style="color:rgb(223, 29, 29); font-size:18.5px; font-weight:400;">
+                                        <small>Field out this email id </small>
+                                    </div>
+                                    <div id="emailId-ErrorId-contain" style="color:rgb(223, 29, 29); font-size:18.5px; font-weight:400;">
+                                        <small>Give correct format of Email ID, Must be using @ and . </small>
+                                    </div>
+                                </div>
+                            
+                                <div class="row px-3" style="margin-top:20px;"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Mobile<span style="color: red;">*</span></h6>
+                                    </label> <input class="inptFldcls1" type="Number" id="mobileInptId-contain" name="mobile" autocomplete="off" placeholder="Enter Phone number"> 
+                                    <div id="mobileNumber-ErrorId-contain" style="color:rgb(223, 29, 29); font-size:18.5px; font-weight:400;">
+                                        <small>Give correct mobile number.</small>
+                                    </div>  
+                                </div><br>
+                            
+                                <div class="row px-3"> <label class="mb-1">
+                                    <h6 class="mb-0 text-sm">Password<span style="color: red;">*</span></h6>
+                                    </label> <input type="password" class="inptFldcls1" id="passwdInptId-contain" name="password" autocomplete="off" placeholder="Enter password" Required> 
+                                    <div class="passwordInfo-ErrorId-contain" style="color:rgb(223, 29, 29); font-size:18.5px; font-weight:400;">
+                                        <small>Give correct format of password,At list 1 Upper and lower case and at list one Special case !@#$%^&*_=+-, Password length must be 8 to 16 character </small>
+                                    </div>
+                                </div>
+                            
+                                <div class="row px-3"> <label class="mb-1"><br>
+                                    <h6 class="mb-0 text-sm">Confirm Password<span style="color: red;">*</span></h6>
+                                    </label> <input type="password" id="cnfrmPasswrdId-contain" class="inptFldcls1" name="confirmpassword" autocomplete="off" placeholder="Enter Confirm password" Required>                                  
+                                    <div id="passwordNotMatch-ErrorId-contain" style="color:rgb(223, 29, 29); font-size:18.5px; font-weight:400;">
+                                        <small>Give correct password didn't match it.</small>
+                                    </div>
+                                </div><br>
+                            
+                                <div class="row mb-3 px-3"> 
+                                    <button type="submit" class="btn btn-blue text-center rgstr-clss">Register</button> 
+                                </div>
+                                <div class="row mb-4 px-3"> 
+                                    <small class="font-weight-bold">You have already  an account? <a href="/login" class="text-danger ">Login</a></small> 
+                                </div>
+                            </div>
+                        </form>
+                    
+                    </div>
+                </div>
+                <div class="bg-blue py-4">
+                    <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2021. .</small>
+                        <div class="social-contact ml-4 ml-sm-auto"> 
+                            <span class="fa fa-facebook mr-4 text-sm"></span> 
+                            <span class="fa fa-google-plus mr-4 text-sm"></span> 
+                            <span class="fa fa-linkedin mr-4 text-sm"></span> 
+                            <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+        <script ></script>
+        
+        
+    </body>          
+</html>

@@ -1,0 +1,53 @@
+{% extends 'header.html' %}
+  
+ {% block body1 %}
+ <div class=" mt-2">
+                             <form method="post" >
+                            <div class="form-group col-md-6"> 
+                               {% csrf_token %}
+                                <h6>Title</h6>
+                                     <input type="tel" name="titleach1" placeholder="Enter Title Sport/Education" required class="form-control "> </div>
+                                
+                             <div class="form-group col-md-12"> 
+                                        <h6>Achievements </h6>
+                                        <textarea class="form-control" name="desc" required placeholder="Your Achievements"  rows="5"maxlength="750" ></textarea> </div>
+                                
+                              
+                                        <div class="container">
+                                             <p> <input type="submit" class="btn btn-primary " value="ADD"> <button type="button" id="next" class="btn btn-dark  btn-lg float-right">NEXT</button>
+                                                 <script type="text/javascript">
+                                                         document.getElementById("next").onclick = function () {
+                                                             location.href = "http://127.0.0.1:8000/Skiles";
+                                                         }; 
+                                                 </script>
+                                         </div>  
+                                   
+                             
+                                 
+                             </form>
+                             <table class="table table-striped  table-hover">
+                              <thead>
+                                <tr>
+                                  <th>Title</th>
+                                          <th>Achievements</th>
+                                         
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  {% for object1 in objec %}  
+                                <tr>
+                                 
+                                  <td>{{object1.title}}</td>
+                                          <td>{{object1.descrption}}</td>
+                                        
+                                  
+                                </tr>
+                                    {% endfor %} 
+                                  </tbody>
+                          </table>	
+                            
+                        </div>
+                       
+
+
+{% endblock body1 %}

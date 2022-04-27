@@ -1,0 +1,57 @@
+  {% extends 'header.html' %}
+  
+ {% block body1 %}
+   
+                   <div class="container my-2">
+                        <form  method="post">
+                        {% csrf_token %}
+                         <div class="form-group col-md-12"> 
+                                <h6>Title/Subject</h6>
+                                     <input type="text" name="subjectname" placeholder="Enter Title subject Php,Html" required class="form-control "> </div>
+                                <div class="form-group col-md-12"> 
+                                <h6>Rating/Marks</h6>
+                                <input type="text" name="marksrate" placeholder="Enter Rating/marks out of 100 " required class="form-control "> </div>
+                              
+                                <div class="container">
+                                  <p> <input type="submit" class="btn btn-primary " value="ADD"> <button type="button" id="next" class="btn btn-dark  btn-lg float-right">NEXT</button>
+                                      <script type="text/javascript">
+                                              document.getElementById("next").onclick = function () {
+                                                  location.href = "http://127.0.0.1:8000/Download";
+                                              }; 
+                                      </script>
+                              </div>  
+                        </form>
+
+
+                        <table class="table table-striped table-hover">
+                          <thead>
+                            <tr>
+                              <th>Title/Subject</th>
+                                      <th>Rating/Marks</th>
+                                   
+                                      
+                            </tr>
+                          </thead>
+                          <tbody>
+                              {% for object1 in objec %}  
+                            <tr>
+                              
+                              <td>{{object1.title}}</td>
+                                      <td>{{object1.rating}}</td>
+                                      
+                              
+                            </tr>
+                                {% endfor %} 
+                              </tbody>
+                      </table>	
+                    <!-- End -->
+                </div>
+                
+
+             
+
+          
+
+
+
+{% endblock body1 %}

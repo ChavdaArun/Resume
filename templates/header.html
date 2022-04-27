@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>ADD Resume</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+</style>
+    <script>
+      function  myfun()
+      {
+               var txt;
+  if (confirm("Are You Sure Submit Data!")) {
+    txt = "You pressed OK!";
+    alert("Succesful data");
+  } else {
+    txt = "You pressed Cancel!";
+  }
+      }
+
+
+  </script>
+        
+   
+  <style>
+ body {
+    background: #fef8f5;
+}
+
+.rounded {
+    border-radius: 1rem
+}
+
+.nav-pills .nav-link {
+    color: #eb5d1e
+    
+}
+
+
+.nav-pills .nav-link.active {
+    color: white;
+    background: #eb5d1e;
+    
+}
+
+
+input[type="radio"] {
+    margin-right: 5px
+}
+
+.bold {
+    font-weight: bold
+}
+.file-field.medium .file-path-wrapper {
+height: 3rem; }
+.file-field.medium .file-path-wrapper .file-path {
+height: 2.8rem; }
+      </style>
+     
+
+  
+  </head>
+
+
+<body>
+<div class="container py-5 " >
+    <!-- For demo purpose -->
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-6">   
+
+   Add Details</h1>
+        </div>
+  <a href="{% url 'Download' %}"><b><u><h5>Logout</h 5></U></b></a> 
+       
+
+    </div> <!-- End -->
+    
+
+
+ <div class="row" >
+        <div class="col-lg-12 mx-auto">
+            <div class="card  " style="" >
+                <div class="card-header " >
+             <ul>
+                        <!-- Credit card form tabs -->
+                       
+                         <li>   <a href="#" class="nav-link  active "> <b>Personal Details</b> </a> </li>
+                            <li>  <a href="{% url 'Education' %}" class="nav-link "> <b>Education Details</b>  </a> </li>
+                          <li>    <a href="{% url 'Experinace' %}" class="nav-link ">  <b>Experinace</b> </a> </li>
+                          <li>     <a href="{% url 'Achievements' %}" class="nav-link  ">  <b>Achievements </b>  </a> </li>
+                            <li>  <a href="{% url 'Skiles' %}" class="nav-link ">   <b>Skiils </b>  </a> </li>
+                            <li>  <a href="{% url 'Download' %}" class="nav-link "> <b>  Download </b>  </a>  </li>
+                            
+                        </ul>
+                        
+                    </div>
+
+                  
+                     {% block body1 %} 
+                     
+                     
+                     {% endblock body1 %}
+                    
+                     <!-- End -->
+                    </body>
+</html>

@@ -1,0 +1,327 @@
+
+<html>
+  <head>
+  </head>
+  <style>
+  ol {
+    --li-bg: purple;
+  }
+  
+  ol li::before {
+    background-color: var(--li-bg);
+  }
+  </style>
+  
+  
+  
+  <body>
+  
+  {% extends 'base.html' %}
+     {% block title %}Home  {% endblock title %}
+   {% block body %}
+   <section id="hero" class="d-flex align-items-center">
+  
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1>Build a professional resume for free</h1>
+            <h2>Create your resume easily with our free builder and professional templates.
+  
+  </h2>
+            <div>
+              <a href="#about" class="btn-get-started scrollto">Create Resume </a>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img">
+            <img src="/static/assets/img/hero-img.svg" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+  
+    </section><!-- End Hero -->
+  
+    <main id="main">
+  
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+  
+          <div class="row justify-content-between">
+            <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
+              <img src="/static/assets/img/about-img.svg" class="img-fluid" alt="" data-aos="zoom-in">
+            </div>
+            <div class="col-lg-6 pt-5 pt-lg-0">
+              <h3 data-aos="fade-up">Resume Steps</h3>
+              <p data-aos="fade-up" data-aos-delay="100">
+                Following  Three Steps Create Resume
+              </p>
+              <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Select your Template.</h4>
+                  <p>Choose a sleek design and layout to get started</p>
+                </div>
+                </div>
+  
+                  <div class="row">
+  
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4> Fill your Information</h4>
+                  <p>Type in a few words.</p>
+                </div>
+                </div>
+                  <div class="row">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                  <i class="bx bx-receipt"></i>
+                  <h4>View and Download your Resume.</h4>
+                  <p> Download  and Share Resume</p>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End About Section -->
+  
+    
+  
+       <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+      <div class="container" data-aos="fade-up">
+  
+        <div class="section-title">
+          <h2>Resume</h2>
+          <p>Check out our beautifull Resume</p>
+        </div>
+  
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-12">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>{% load static %}
+        
+       
+       
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+         
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="/static/img/Resume-1.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="/static/img/Resume-1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resume 1 "><i class="bi bi-plus"></i></a>
+               
+              </div>
+              <div class="portfolio-info">
+                <h4> <a href="PersonalDetails">Resume -1 </a> </h4>
+                <p>Free </p>
+              </div>
+            </div>
+          </div>
+        
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="/static/img/arv.jpeg" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="/static/img/arv.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resume -2"><i class="bi bi-plus"></i></a>
+               
+              </div>
+              <div class="portfolio-info">
+                <h4> <a href="PersonalDetails">Resume -2 </a> </h4>
+                <p>Free </p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="/static/img/resume2.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="/static/img/resume2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resume-3"><i class="bi bi-plus"></i></a>
+                
+              </div>
+              <div class="portfolio-info">
+                <h4> <a href="PersonalDetails">Resume -3 </a> </h4>
+                <p>Free</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="/static/img/resume3.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="/static/img/resume3.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resume-4"><i class="bi bi-plus"></i></a>
+               
+              </div>
+              <div class="portfolio-info">
+                <h4> <a href="PersonalDetails">Resume -4 </a> </h4>
+                <p>Free</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="/static/img/resume5.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="/static/img/resume5.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resume-5"><i class="bi bi-plus"></i></a>
+                
+              </div>
+              <div class="portfolio-info">
+                <h4> <a href="PersonalDetails">Resume -5 </a> </h4>
+                <p>Rs.10</p>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="/static/img/resume4.png" class="img-fluid" alt="">
+              <div class="portfolio-links">
+                <a href="/static/img/resume4.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Resume -6 "><i class="bi bi-plus"></i></a>
+              </div>
+              <div class="portfolio-info">
+                <h4> <a href="PersonalDetails">Resume -6 </a> </h4>
+                <p>Rs. 10 </p>
+              </div>
+            </div>
+          </div>
+  
+         
+         
+  
+         
+  
+        </div>
+  
+      </div>
+    </section>
+  
+      <!-- ======= F.A.Q Section ======= -->
+      <section id="faq" class="faq section-bg ">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2> Tips</h2>
+            <p>Helpful  Resume Tips</p>
+          </div>
+  
+  
+  <div class="container faq-list"   data-aos="fade-up" data-aos-delay="100">
+    <div class="row justify-content-start">
+      <div class="col-6 fs-5 ">
+     <p class="my-0" >   <Strong>Introduce yourself.</strong> Include a cover letter written on custom letterhead to set the tone and let them know why you’re the best candidate.</p>
+  
+  <p class="my-1"> <Strong>Keep it brief.</strong> Managers are busy and tend to scan, not read, resumes. Write in short, bulleted phrases that highlight accomplishments quickly. </p>
+  
+  <p class="my-1"> <Strong>Spell-check.</strong> Typos or grammatical errors are seen as a lack of attention to detail. Don’t rely on your computer’s spell-check. Print it out and review a hard copy before submitting.</p>
+      </div>
+      <div class="col-6 fs-5">
+        <p class="my-0">   <Strong> Better paper = Better impression.</strong> Use premium paper to stand out in a crowd of basic stock. FedEx Office has a variety of paper options to choose from, including resume paper.</p>
+  
+  <p class="my-1"> <B>Be the ideal candidate.</B> Customize your resume to the job you’re applying to by showcasing relevant skill and experience.</p>
+  
+  <p class="my-1"> <Strong>Always be ready.</strong> With FedEx Office, you can print and ship your resume anytime, from anywhere. Even save it online for faster reordering.</p>
+  
+     <p class="">  For more tips on how to improve your resume’s    performance..<br> <br><button  >Click here</button><br><br></p>
+  
+      </div>
+    </div>
+  
+    </div>
+  
+        </div>
+      </section><!-- End F.A.Q Section -->
+               
+  
+    
+  
+      <!-- ======= Contact Us Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Contact Us</h2>
+            <p></p>
+          </div>
+  
+          <div class="row">
+  
+            <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              <div class="info">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>H-102 Shantipujay , Ahmedabad, Gujrat, 382481</p>
+                </div>
+  
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>Onlinecv@example.com</p>
+                </div>
+  
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                   <p> +91 7621094013</p>
+                  <p> +91 9510104254</p>
+  
+                </div>
+  
+               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14681.237193007635!2d72.5477069!3d23.085770800000013!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf96cc5df11419969!2sShanti%20Pujya%20Homes!5e0!3m2!1sen!2sin!4v1626246172732!5m2!1sen!2sin" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+              </div>
+  
+            </div>
+  
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                  <div class="form-group col-md-6">
+                    <label for="name">Your Name</label>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group col-md-6 mt-3 mt-md-0">
+                    <label for="name">Your Email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <label for="name">Subject</label>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                  <label for="name">Message</label>
+                  <textarea class="form-control" name="message" rows="10" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Contact Us Section -->
+  
+    </main><!-- End #main -->
+  
+  
+  
+  
+   {% endblock body %}
+   </body>
+   </html>

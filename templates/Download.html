@@ -1,0 +1,39 @@
+
+
+
+{% extends 'header.html' %}
+  
+
+ {% block body1 %}
+<div class="container my-3">
+                        
+<div class="form-group col-md-12"> <p>View Resume:</p>
+<button class="btn" id="myButton"><i class="fa fa-view"></i> View Resume</button>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "http://127.0.0.1:8000/viewresume";
+    }; 
+</script>
+<br><br>
+                               
+<p>Download Resume:</p>
+<button class="btn" id="myButto"><i class="fa fa-download"></i> Download</button>
+<script type="text/javascript">
+    document.getElementById("myButto").onclick = function () {
+        location.href = "http://127.0.0.1:8000/viewresume";
+    }; 
+</script>
+<br><br>
+
+
+
+
+     
+ </div>
+                        
+</div>
+                    
+
+
+ {% endblock body1 %}
+

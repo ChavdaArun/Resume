@@ -1,0 +1,161 @@
+  
+  {% extends 'header.html' %}
+   {% block title %}Home  {% endblock title %}
+ {% block body1 %}
+  
+ 
+                        <!-- credit card info-->
+                        <div  class="container">
+                            <form action=""  enctype="multipart/form-data" method="POST"> 
+                                {% csrf_token %}
+                                   <div class="row " >
+                                <div class="form-group col-md-6"> 
+                                        
+                                        <input type="hidden" name="R_id"  class="form-control "  value=" {{id}}"> </div>
+                                    <div class="form-group col-md-6"> 
+                                      
+                                        <input type="hidden" name="Resume_id"  placeholder="Enter Mobile"  value=""  required class="form-control "> </div>
+                                </div>
+                                <div class="row">
+                                <div class="form-group col-md-4"> 
+                                        <h6>First  Name</h6>
+                                     <input type="text" name="fname" placeholder="Enter First Name" required class="form-control "> </div>
+                                <div class="form-group col-md-4"> 
+                                        <h6>Second Name</h6>
+                                     <input type="text" name="sname" placeholder="Enter Second Name" required class="form-control "> </div>
+                                    <div class="form-group col-md-4"> 
+                                        <h6>Last Name</h6>
+                                     <input type="text" name="lname" placeholder="Enter Last Name" required class="form-control "> </div>
+                                </div>
+                                
+                                <div class="form-group  "> 
+                                        <h6>Title</h6>
+                                     <input type="text" name="title" placeholder="Enter Your Job Title" required class="form-control "> </div>
+                                
+                                     
+                                 
+                                <div class="row">
+                                <div class="form-group col-md-6"> 
+                                        <h6>Email  </h6>
+                                        <input type="email" name="email" placeholder="Enter Email"  required class="form-control "  value=" "> </div>
+                                <div class="form-group col-md-6"> 
+                                        <h6>Mobile Number</h6>
+                                        <input type="tel" name="mobile"  placeholder="Enter Mobile"  value=""  required class="form-control "> </div>
+                                </div>
+                                 
+                                 <div class="row">
+                                <div class="form-group col-md-6"> 
+                                        <h6>Date of Birth  </h6>
+                                     <input type="date" name="dob" placeholder="Enter Date of Birth" required class="form-control "> </div>
+                                <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Gender</label>
+                                    <div class="p-t-10">
+                                        <label class="radio-container m-r-45">Male
+                                            <input type="radio" checked="checked" Value="Male" name="gender"/>
+                                           
+                                        </label>
+                                        <label class="radio-container">Female
+                                            <input type="radio"  Value ="Female" name="gender">
+                                           
+                                        </label>
+                                         
+                                    </div>
+                                </div>
+                            </div>
+
+                                </div>
+                                <div class="row">
+                                <div class="form-group col-md-6"> 
+                                        <h6>Phone  </h6>
+                                     <input type="tel" name="phone" placeholder="Enter Phone Number"  class="form-control "> </div>
+                                <div class="form-group col-md-6"> 
+                                        <h6>Linkedln  Link</h6>
+                                     <input type="url" name="addresslink" placeholder="Enter Address"  class="form-control "> </div>
+                                </div>
+                               
+                                
+                                 <div class="row">
+                                <div class="form-group col-md-6"> 
+                                                                           <div class="col-9">
+                                <div>
+                                    <label class="label">Language</label>
+                                    <div >
+                                        <label >English
+                                            <input type="checkbox" value="English" name="language[]">
+                                           
+                                        </label>
+                                        <label >Hindi
+                                            <input type="checkbox" value="Hindi" name="language[]">
+                                          
+                                        </label>
+                                        <label >Gujrati
+                                            <input type="checkbox" value="Gujrati" name="language[]">
+                                           
+                                        </label>
+                                         <label >Tamil
+                                             <input type="checkbox" value="Tamil" name="language[]">
+                                           
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                                <div class="form-group col-md-6 "> 
+                                        <h6>Other Language</h6>
+                                        <input type="text" name="language" placeholder="Enter Other Language"  class="form-control "> </div>
+                                        
+                                </div>
+                                
+                            
+                                 <div class="form-group col-md-12 "> 
+                                        <h6>Address</h6>
+                                        <textarea name="address" class="form-control" rows="3"></textarea> </div>
+                                
+                                       
+                               
+                               
+                                
+                                          <div class="form-group col-md-6 btn btn-outline-info waves-effect ml-3 "> 
+                                        <h6>Select Profile </h6>
+                                        <input type="file" name="image"> </div>
+                                
+                                 
+                                 
+                          <!--<-->     
+                            <div class="form-group col-md-12 "> 
+                                        <h6>About Me</h6>
+                                        <textarea class="form-control" name="about" required placeholder="Enter About You"  rows="5"maxlength="750" ></textarea> </div>
+                                
+
+                                        
+                                        
+
+                               
+
+                                      
+                                  
+                                
+                                        
+                                     
+                                          
+       
+                          
+                          <!-- comment -->
+                          
+                           <!-- Credit card form tabs -->
+                        
+                           <div class="col-md-4  mx-auto  mb-3 "> <input type="submit" name="submit"   value="Save" class="btn btn-primary col-md-6">
+<input type="submit" value="Next"  id="myB"class="btn btn-">
+                               
+                                 </form>
+                                 <script type="text/javascript">
+    document.getElementById("myB").onclick = function () {
+          location. href = "#Experience";
+    };
+    </script>
+                        </div>
+
+                 
+
+                    {% endblock body1 %}
